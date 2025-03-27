@@ -1,18 +1,17 @@
-// This is groovi script
-pipeline{
+pipeline {
     agent any
 
-
-    stages {
-        stage("Install Dependencies")
-        steps {
-            sh 'npm install'
+    stages {  // <-- All stages should be inside this block
+        stage("Install Dependencies") {
+            steps {
+                sh 'npm install'
+            }
         }
-    }
 
-    stage('Run Tests'){
-        steps {
-            sh 'npm test'
+        stage('Run Tests') {  
+            steps {
+                sh 'npm test'
+            }
         }
     }
 }
